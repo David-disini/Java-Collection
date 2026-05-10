@@ -47,70 +47,65 @@ public class App {
             for (User pengguna : users) {
                 if(pengguna.getUsername().equals(username) && pengguna.getPassword().equals(password)){
                     loginSukses = true;
-                    menu(pengguna);
+                    pengguna.tampilanMenu(scanner);
                     menuLogin = false;
                     break;
                 }
-                if (!loginSukses) {
-                    System.out.println("Username atau Password salah");
-                    menuLogin = false;
-                }
+            }
+            if (!loginSukses) {
+                System.out.println("Username atau Password salah");
+                menuLogin = false;
             }
         }
     }
 
     public static void register(){
         boolean menuRegis = true;
+        boolean usernameAda = false;
         while (menuRegis) {
             System.out.println("+================+");
             System.out.println(" Welcome to ISTTS");
             System.out.println("+================+");
             System.out.println();
+            System.out.println("1. Mahasiswa");
+            System.out.println("2. Dosen");
+            System.out.println(">> ");
+            int pilihan = scanner.nextInt();
+            scanner.nextLine();
+            if(pilihan != 1 && pilihan != 2){
+                System.out.println("Gak ada");
+                continue;
+            }
             System.out.print("Username: ");
             String username = scanner.nextLine();
             for (User pengguna : users) {
                 if(pengguna.getUsername().equals(username)){
                     System.out.println("Username sudah terdaftar");
+                    usernameAda = true;
                     return;
                 }
             }
+            if(usernameAda){
+                return;
+            }
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            users.add(new User(username, password));
-            System.out.println("Register berhasil");
+            String namaLengkap = scanner.nextLine();
+            if(pilihan == 1){
+                System.out.print("NIM          : ");
+                String nim = scanner.nextLine();
+                System.out.print("UKM/Organisasi: ");
+                String ukm = scanner.nextLine();
+                users.add(new Mahasiswa(username, password, namaLengkap, nim, ukm));
+                System.out.println("Register berhasil");
+            }
+            else if(pilihan == 2){
+                System.out.print("NIDN         : ");
+                String nidn = scanner.nextLine();
+                users.add(new Dosen(username, password, namaLengkap, nidn));
+            }
             menuRegis = false;
         }
     }
 
-    public static void menu(User user){
-        System.out.println("+================+");
-        System.out.println(" Welcome to ISTTS " + user.getUsername());
-        System.out.println("+================+");
-        System.out.println();
-        System.out.println("Interaksi yang dapat dipilih:");
-        System.out.println("1. Informasi data \n2. Jadwal Kelas \n3. List Dosen \n4. Map Kampus");
-        System.out.println(">> ");
-        int pilihanMenu = scanner.nextInt();
-        scanner.nextLine();
-        switch (pilihanMenu) {
-            case 1:
-                informasiData();
-                break;
-            case 2:
-                
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            default:
-                break;
-        }
-    }
-
-    public static void informasiData(){
-
-    }
 }

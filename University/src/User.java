@@ -1,10 +1,23 @@
-public class User {
+import java.util.*;
+public abstract class User {
     private String username;
     private String password;
+    private String namaLengkap;
 
-    public User(String username, String password) {
+    public User(String username, String password, String namaLengkap) {
         this.username = username;
         this.password = password;
+        this.namaLengkap = namaLengkap;
+    }
+
+    public abstract void tampilanMenu(Scanner scanner);
+
+    public String getNamaLengkap() {
+        return namaLengkap;
+    }
+
+    public void setNamaLengkap(String namaLengkap) {
+        this.namaLengkap = namaLengkap;
     }
 
     public String getUsername() {
