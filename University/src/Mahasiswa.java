@@ -21,5 +21,20 @@ public class Mahasiswa extends User {
         System.out.println("3. Info Organisasi (" + this.ukm + ")");
         System.out.println("0. Logout");
         System.out.print(">> ");
+        int pilihan = scanner.nextInt();
+        scanner.nextLine();
+        switch (pilihan) {
+            case 1:
+                
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 0:
+                break;
+            default:
+                break;
+        }
     }
 }

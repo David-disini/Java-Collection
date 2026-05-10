@@ -19,6 +19,17 @@ public class Dosen extends User {
             System.out.println("1. Lihat Jadwal Mengajar");
             System.out.println("0. Logout");
             System.out.print(">> ");
+            int pilihan = scanner.nextInt();
+            scanner.nextLine();
+            switch (pilihan) {
+                case 1:
+                    
+                    break;
+                case 0:
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
