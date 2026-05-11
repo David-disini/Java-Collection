@@ -90,8 +90,9 @@ public class App {
             }
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            String namaLengkap = scanner.nextLine();
             if(pilihan == 1){
+                System.out.print("Nama lengkap: ");
+                String namaLengkap = scanner.nextLine();
                 System.out.print("NIM          : ");
                 String nim = scanner.nextLine();
                 System.out.print("UKM/Organisasi: ");
@@ -100,6 +101,8 @@ public class App {
                 System.out.println("Register berhasil");
             }
             else if(pilihan == 2){
+                System.out.print("Nama lengkap: ");
+                String namaLengkap = scanner.nextLine();
                 System.out.print("NIDN         : ");
                 String nidn = scanner.nextLine();
                 users.add(new Dosen(username, password, namaLengkap, nidn));

@@ -10,7 +10,6 @@ public class Dosen extends User {
     @Override
     public void tampilanMenu(Scanner scanner) {
         boolean isMenuDosenAktif = true;
-
         while (isMenuDosenAktif) {
             System.out.println("\n=== Dashboard Dosen ===");
             System.out.println("Nama   : " + getNamaLengkap());
@@ -23,14 +22,19 @@ public class Dosen extends User {
             scanner.nextLine();
             switch (pilihan) {
                 case 1:
-                    
+                    jadwalMengajar();
                     break;
                 case 0:
+                    isMenuDosenAktif = false;
                     break;
                 default:
                     break;
             }
         }
+    }
+
+    public static void jadwalMengajar(){
+
     }
 
     public String getNidn() {
